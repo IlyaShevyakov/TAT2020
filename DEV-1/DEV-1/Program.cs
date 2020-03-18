@@ -10,7 +10,7 @@ namespace Line
     {
         static void Main(string[] args)
         {
-            Line line= new Line("")
+       
         }
     }
 }

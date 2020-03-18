@@ -10,7 +10,7 @@ namespace DEV_1.Test
         [TestMethod()]
         public void IsLineEmptyTure()
         {
-            DEV_1.Line word = new DEV_1.Line("");
+            NumberOfDifferentSymbols word = new NumberOfDifferentSymbols("");
 
             bool actual = word.IsLineEmpty();
 
@@ -20,7 +20,7 @@ namespace DEV_1.Test
         [TestMethod()]
         public void IsLineEmptyFalse()
         {
-            Line word = new Line("abcd");
+            NumberOfDifferentSymbols word = new NumberOfDifferentSymbols("abcd");
 
             bool actual = word.IsLineEmpty();
 
@@ -30,15 +30,15 @@ namespace DEV_1.Test
         [ExpectedException(typeof(ArgumentException))]
         public void CheckValueNullTest()
         {
-            Line symbols = new Line(null);
+            NumberOfDifferentSymbols symbols = new NumberOfDifferentSymbols(null);
         }
         [TestMethod()]
         public void EmptyLineNumberOfNonRepeatingSymbolsTest()
         {
-            Line word = new Line("");
+            NumberOfDifferentSymbols word = new NumberOfDifferentSymbols("");
             int expected = 0;
 
-            int actual = word.NonRepeatingSymbols();
+            int actual = word.NumberNonRepeatingCharacter();
 
             Assert.AreEqual(actual, expected);
         }
@@ -46,23 +46,14 @@ namespace DEV_1.Test
         [TestMethod()]
         public void NumberOfNonRepeatingSymbolsTest()
         {
-            Line word = new Line("abccefgh");
+            NumberOfDifferentSymbols word = new NumberOfDifferentSymbols("abccefgh");
             int expected = 5;
 
-            int actual = word.NonRepeatingSymbols();
+            int actual = word.NumberNonRepeatingCharacter();
 
             Assert.AreEqual(actual, expected);
         }
 
-        [TestMethod()]
-        public void SameSymblosNumberOfNonRepeatingSymbolsTest()
-        {
-            Line word = new Line("aaaaa");
-            int expected = 1;
-
-            int actual = word.NonRepeatingSymbols();
-
-            Assert.AreEqual(actual, expected);
-        }
+        
     }
 }

@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace DEV_1
 {
-    public  class Line
+    public  class NumberOfDifferentSymbols 
     {
        
         private string _line;
         /// <summary>
         /// constructor
         /// </summary>
-        public Line (string Word)
+        public NumberOfDifferentSymbols (string Line)
         {
-           word = Word;
+           line = Line;
         }
         /// <summary>
         /// Method that set and return field values
         /// </summary>
-        public string word
+        public string line
         {
             get
             {
@@ -28,6 +28,7 @@ namespace DEV_1
             }
             set
             {
+                checkValue(value);
                 this._line = value ;
             }
         }
@@ -37,7 +38,7 @@ namespace DEV_1
         /// <returns></returns>
         public bool IsLineEmpty()
         {
-            if (word == "")
+            if (line == "")
             {
                 return true;
             }
@@ -60,17 +61,24 @@ namespace DEV_1
         /// Method counts number of non repeating symbols in line
         /// </summary>
         /// <returns></returns>
-        public int NonRepeatingSymbols()
+        public int NumberNonRepeatingCharacter()
         {
+            if (line == "")
+                {
+                    return 0;
+                }
             int count = 0;
             int max = 0;
             char buffer = '\0';
-            buffer = word[0];
-            for (int i = 1; i < word.Length; ++i)
+            buffer = line[0];
+            
+            for (int i = 1; i < line.Length; ++i)
             {
-                if (word[i] != buffer)
+                
+                if (line[i] != buffer)
                 {
                     count++;
+                    buffer = line[i];
                 }
                 else
                 {
@@ -79,7 +87,7 @@ namespace DEV_1
                         max = count;
                     }
                     count = 1;
-                    buffer = word[0];
+                    buffer = line[i];
                 }
             }
             if (count > max)
